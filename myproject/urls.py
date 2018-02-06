@@ -17,10 +17,12 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from webforum import views
+from accounts import views as accounts_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
+    url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^forums/(?P<pk>\d+)/$', views.forum_topics, name='forum_topics'),
     url(r'^forums/(?P<pk>\d+)/new/$', views.new_topic, name='new_topic'),
 ]

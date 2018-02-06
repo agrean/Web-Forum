@@ -6,22 +6,34 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+	{% block stylesheet %}{% endblock %} <!-- Add extra CSS secific to some pages -->
 </head>
 <body>
+	{% block body %} <!-- Wrapping the whole html document -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a class="navbar-brand" href="{% url 'home' %}">Web Forum</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="mainMenu">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="#">{{ user.username }}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
-			<a class="navbar-brand" href="{% url 'home' %}">Web Forum</a>
-		</div>
-	</nav>
-
-	<div class="container">
-		<ol class="breadcrumb my-4">
-			{% block breadcrumb %}
+			<ol class="breadcrumb my-4">
+				{% block breadcrumb %}
+				{% endblock %}
+			</ol>
+			{% block content %}
 			{% endblock %}
-		</ol>
-		{% block content %}
-		{% endblock %}
-	</div>
+		</div>
+	{% endblock body %}
 </body>
 </html>
