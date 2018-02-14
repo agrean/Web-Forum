@@ -1,9 +1,9 @@
 body {
-  background-image: url(../img/warty-final-ubuntu.png);
+  background-image: url(../img/background.png);
 }
 
 .logo {
-  font-family: 'Peralta', cursive;
+  font-family: 'Lobster', cursive;
 }
 
 .logo a {
